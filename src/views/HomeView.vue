@@ -17,6 +17,13 @@
             <el-input placeholder="请输入内容" v-model="weight" class="input-with-select">
               <span slot="append" class="append-span" @click="changeUnit">{{ unit }}</span>
             </el-input>
+            <el-divider direction="vertical"></el-divider>
+            <span>长宽高: </span>
+            <el-input class="long-input" v-model="long" placeholder="长"></el-input><el-divider
+              direction="vertical"></el-divider>
+            <el-input class="long-input" v-model="wide" placeholder="宽"></el-input><el-divider
+              direction="vertical"></el-divider>
+            <el-input class="long-input" v-model="high" placeholder="高"></el-input>
           </div>
           <div class="search">
             <el-button type="primary" icon="el-icon-search" @click="search" :loading="searchLoading">搜索</el-button>
@@ -70,7 +77,10 @@ export default {
     weight: 0,
     unit: 'KG',
     searchLoading: false,
-    channels: []
+    channels: [],
+    long: null,
+    wide: null,
+    high: null,
   }),
   methods: {
     changeUnit() {
@@ -98,6 +108,7 @@ export default {
         return
       }
       this.searchLoading = true
+      this.channels = []
       this.getList()
     },
     getList() {
@@ -134,6 +145,14 @@ export default {
   padding: 0;
   width: 50px;
   text-align: center;
+}
+
+.long-input {
+  width: 60px !important;
+}
+
+.long-input>>>.el-input__inner {
+  border-right: none;
 }
 
 .append-span {

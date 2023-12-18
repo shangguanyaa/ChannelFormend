@@ -18,6 +18,7 @@
               <template slot="title">打开更多该渠道设置<i class="header-icon el-icon-info"></i></template>
               <XiaoHuoOne v-if="item.channelCode === '小货包税1'" :item="item" :index="i" v-bind="$attrs"
                 @countPrice="countPrice" />
+              <UPS v-if="item.channelCode === 'UPS'" :item="item" :index="i" v-bind="$attrs" @countPrice="countPrice" />
             </el-collapse-item>
           </el-collapse>
         </el-card>
@@ -29,13 +30,14 @@
 <script>
 import { iconColor } from "../utils/channelIcon";
 import XiaoHuoOne from "./EveryChannel/XiaoHuo1"
+import UPS from "./EveryChannel/UPS.vue"
 
 export default {
   name: 'channelList',
   props: {
     list: { type: Array }
   },
-  components: { XiaoHuoOne },
+  components: { XiaoHuoOne, UPS },
   data: () => ({
     channelLists: [],
     iconColor
