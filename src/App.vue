@@ -4,6 +4,16 @@
   </div>
 </template>
 
+<script>
+
+export default {
+  mounted() {
+    console.log('2023-12-18 15:41:21');
+  }
+}
+
+</script>
+
 <style>
 * {
   margin: 0;
