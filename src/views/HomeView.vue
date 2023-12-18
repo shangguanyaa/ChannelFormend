@@ -115,7 +115,7 @@ export default {
       let data = {}
       data.country = this.selectCountry
       data.weight = this.unit === 'KG' ? this.weight * 1000 : this.weight
-      axios.post('http://localhost:9000/channel/conformList', data).then((res) => {
+      axios.post('http://home.olbing.cn/channel/conformList', data).then((res) => {
         console.log(res.data.results);
         this.channels = res.data.results || []
         this.searchLoading = false
